@@ -23,7 +23,7 @@ const config: runtime.GetPrismaClientConfig = {
       "value": "prisma-client"
     },
     "output": {
-      "value": "C:\\Users\\cjad1\\Stuff\\Projects\\TodoAPI\\generated\\prisma",
+      "value": "C:\\Users\\cjad1\\Stuff\\Projects\\TodoAPI\\src\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -40,13 +40,14 @@ const config: runtime.GetPrismaClientConfig = {
     "sourceFilePath": "C:\\Users\\cjad1\\Stuff\\Projects\\TodoAPI\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
-  "relativePath": "../../prisma",
+  "relativePath": "../../../prisma",
   "clientVersion": "6.19.3",
   "engineVersion": "c2990dca591cba766e3b7ef5d9e8a84796e47ab7",
   "datasourceNames": [
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
@@ -55,8 +56,8 @@ const config: runtime.GetPrismaClientConfig = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Todo {\n  id    Int    @id @default(autoincrement())\n  title String\n  body  String\n}\n",
-  "inlineSchemaHash": "dc5bf05a3cb5e53c107aee3f878edb221b4e1177822d5e6f45d08753c48ca60c",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client\"\n  output   = \"../src/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Todo {\n  id    Int    @id @default(autoincrement())\n  title String\n  body  String\n}\n",
+  "inlineSchemaHash": "119d7d5258d66822d68468baaa4dc1551dfae5343e3a8ee2d5bf91b5f7292626",
   "copyEngine": true,
   "runtimeDataModel": {
     "models": {},

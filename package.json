@@ -7,7 +7,6 @@
     "dev": "tsx watch src/app.ts",
     "build": "tsc",
     "start": "node dist/app.js",
-    "prod": "npm run build && npm run start",
     "install": "npm install"
   },
   "keywords": [],
@@ -17,7 +16,9 @@
   "dependencies": {
     "@prisma/client": "^6.19.3",
     "@types/express": "^5.0.6",
+    "@types/lru-cache": "^7.10.9",
     "@types/node": "^26.3.0",
+    "crypto": "^1.0.1",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "lru-cache": "^11.5.2",
