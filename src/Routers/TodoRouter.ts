@@ -96,4 +96,28 @@ TodoRouter.put("/update/:id", async (req, res) => {
     return res.status(200).json({ message: `Successfully updated Todo of id ${id}` });
 });
 
+// Deletes a Todo using id
+
+TodoRouter.delete("/delete/:id", async (req, res) => {
+    const id = Number(req.params.id);
+
+    const foundTodo = await prisma.todo.findUnique({
+        where: {
+            id: id
+        }
+    });
+
+    if (!foundTodo) {
+        return res.status(404).json({ error: `Todo of id ${id} does not exist` });
+    }
+
+    await prisma.todo.delete({
+        where: {
+            id: id
+        }
+    });
+
+    return res.status(200).json({ message: `Successfully deleted Todo of id ${id}` });
+});
+
 export default TodoRouter;
