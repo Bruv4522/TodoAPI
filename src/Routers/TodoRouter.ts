@@ -55,4 +55,45 @@ TodoRouter.post("/create", async (req, res) => {
     return res.status(201).json({ message: `Successfully created new Todo of title ${title}` });
 });
 
+// Updates a Todo using id
+
+TodoRouter.put("/update/:id", async (req, res) => {
+    if (!req.body) {
+        return res.status(404).json({ error: "Request body not found" });
+    }
+
+    const id = Number(req.params.id);
+    const { title, body } = req.body;
+    const foundTodo = await prisma.todo.findUnique({
+        where: {
+            id: id
+        }
+    });
+
+    if (!foundTodo) {
+        return res.status(404).json({ error: `Todo of id ${id} does not exist` });
+    }
+
+    if (!title) {
+        return res.status(404).json({ error: "Todo title not found" });
+    }
+
+    if (!body) {
+        return res.status(404).json({ error: "Todo body not found" });
+    }
+
+    await prisma.todo.update({
+        where: {
+            id: id
+        },
+
+        data: {
+            title: title,
+            body: body
+        }
+    });
+
+    return res.status(200).json({ message: `Successfully updated Todo of id ${id}` });
+});
+
 export default TodoRouter;
