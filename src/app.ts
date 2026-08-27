@@ -3,6 +3,7 @@ import "dotenv/config"
 
 import TodoRouter from "./Routers/TodoRouter.js";
 import RateLimiter from "./Middleware/RateLimiter.js";
+import prisma from "./Modules/prisma.js";
 
 const app = express();
 const PORT = process.env.PORT;
@@ -10,7 +11,8 @@ const PORT = process.env.PORT;
 app.use(express.json());
 app.use(RateLimiter);
 
-app.get("/ping", (req, res) => {
+app.get("/ping", async (req, res) => {
+    await prisma.$queryRaw`SELECT 1`;
     return res.json({ message: "Pong" });
 })
 
