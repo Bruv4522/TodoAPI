@@ -1,11 +1,6 @@
 import { LRUCache } from "lru-cache";
 
-type info = {
-    ip: string,
-    dateTime: Date
-};
-
-const ReqCache = new LRUCache<string, info>({
+const ReqCache = new LRUCache<string, number>({
     ttl: 1000 * 60 * 1,
     max: 100000
 });
